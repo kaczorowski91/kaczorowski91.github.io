@@ -63,10 +63,9 @@ $(document).ready(function() {
   }
 
   function getAllTasks() {
-    const requestUrl = apiRoot;
-
+ 
     $.ajax({
-      url: requestUrl,
+      url: apiRoot,
       method: 'GET',
       contentType: "application/json",
       success: function(tasks) {
@@ -84,10 +83,9 @@ $(document).ready(function() {
     var taskId = parentEl.attr('data-task-id');
     var taskTitle = parentEl.find('[data-task-name-input]').val();
     var taskContent = parentEl.find('[data-task-content-input]').val();
-    var requestUrl = apiRoot;
 
     $.ajax({
-      url: requestUrl,
+      url: apiRoot,
       method: "PUT",
       processData: false,
       contentType: "application/json; charset=utf-8",
@@ -101,17 +99,17 @@ $(document).ready(function() {
         parentEl.attr('data-task-id', data.id).toggleClass('datatable__row--editing');
         parentEl.find('[data-task-name-paragraph]').text(taskTitle);
         parentEl.find('[data-task-content-paragraph]').text(taskContent);
-      }
+		availableTasks[data.id] = data;
+       }
     });
   }
 
   function handleTaskDeleteRequest() {
     var parentEl = $(this).parents('[data-task-id]');
     var taskId = parentEl.attr('data-task-id');
-    var requestUrl = apiRoot;
 
     $.ajax({
-      url: requestUrl +'/'+taskId,
+      url: apiRoot + '/' + taskId,
       method: 'DELETE',
       success: function() {
         parentEl.slideUp(400, function() { parentEl.remove(); });
@@ -125,10 +123,8 @@ $(document).ready(function() {
     var taskTitle = $(this).find('[name="title"]').val();
     var taskContent = $(this).find('[name="content"]').val();
 
-    var requestUrl = apiRoot;
-
     $.ajax({
-      url: requestUrl,
+      url: apiRoot,
       method: 'POST',
       processData: false,
       contentType: "application/json; charset=utf-8",

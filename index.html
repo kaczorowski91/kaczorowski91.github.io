@@ -16,7 +16,7 @@
     <form
         class="datatable__row datatable__row--add"
         method="POST"
-        action="https://arcane-savannah-01562.herokuapp.com/v1/task"
+        action="http://localhost:8080/v1/task/createTask"
         data-task-add-form
     >
       <fieldset class="datatable__row-section datatable__row-section--input-section">
@@ -34,7 +34,7 @@
       </fieldset>
 
       <fieldset class="datatable__row-section datatable__row-section--button-section">
-        <button type="submit" data-task-add-button class="datatable__button">Add a task</button>
+        <button type="submit" data-task-add-button class="datatable__button"><span>Add a task</span></button>
       </fieldset>
     </form>
   </section>
@@ -64,10 +64,10 @@
 
     <div class="datatable__row-section-wrapper">
       <fieldset class="datatable__row-section datatable__row-section--button-section">
-        <button type="button" data-task-submit-update-button class="datatable__button datatable__button--editing ">Submit update</button>
-        <button type="button" data-task-edit-abort-button class="datatable__button datatable__button--editing">Abort update</button>
-        <button type="button" data-task-edit-button class="datatable__button">Edit</button>
-        <button type="button" data-task-delete-button class="datatable__button">Delete</button>
+        <button type="button" data-task-submit-update-button class="datatable__button datatable__button--editing "><span>Submit update</span></button>
+        <button type="button" data-task-edit-abort-button class="datatable__button datatable__button--editing"><span>Abort update</span></button>
+        <button type="button" data-task-edit-button class="datatable__button"><span>Edit</span></button>
+        <button type="button" data-task-delete-button class="datatable__button"><span>Delete</span></button>
       </fieldset>
 
       <fieldset class="datatable__row-section datatable__row-section--trello-section">
@@ -78,14 +78,14 @@
           <option disabled selected>--- select a list ---</option>
         </select>
         <button type="button" data-trello-card-creation-trigger class="datatable__button datatable__button--card-creation">
-          Create a card
+          <span>Create a card</span>
         </button>
       </fieldset>
     </div>
   </form>
 </div>
 
-<script src="jquery-3.3.1.min.js"></script>
+<script src="jquery-3.4.1.min.js"></script>
 <script src="script.js"></script>
 
 </body>
